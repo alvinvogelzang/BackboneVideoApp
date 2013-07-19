@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Backbone Video App</title>
+  <link rel="stylesheet" href="css/videoApp.css"/>
+  <link href='http://fonts.googleapis.com/css?family=Rambla:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+</head>
+
+<body>
+
+  <div id="playlist-container">
+
+    <header>
+      <h1>Backbone Video App</h1>
+    </header>
+
+    <section id="main">
+      <h1>Your playlist</h1>
+      <ul id="video-playlist"></ul>
+    </section>
+
+    <footer>
+      <div id="video-count"></div>
+    </footer>
+
+    <div class="search-box">
+      <form onsubmit="go_get(); return false;" >
+      <input type="text" id="yourtextfield" class="searchbox" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search for a video...'" placeholder="Search for a video...">
+      </form>
+      </div>
+
+  </div>
+
+  <section id="video-container">
+  </section>
+
+  <script src="support/jquery.js"></script>
+  <script src="support/underscore.js"></script>
+  <script src="support/backbone.js"></script>
+  <script src="js/backbone.localStorage.js"></script>
+  <script src="js/videoApp.js"></script>
+
+  <!-- Templates -->
+
+  <script type="text/template" id="video-item-template">
+    <div class="view">
+      <label><%- title %></label>
+    </div>
+    <a class="destroy">X</a>
+  </script>
+
+  <script type="text/template" id="videoplayer-template">
+    <iframe id="youriframe" frameborder="0" width="560" height="315"></iframe>
+  </script>
+
+  <script type="text/template" id="stats-template">
+    <div class="video-count">You have <b><%= remaining %></b> <%= remaining == 1 ? 'video' : 'videos' %> in your playlist </div>
+  </script>
+
+  </body>
+</html>
